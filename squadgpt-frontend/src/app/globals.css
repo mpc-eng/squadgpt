@@ -1,0 +1,381 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base Colors */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+
+    /* SquadGPT Agent Colors */
+    --squad-business: 200 100% 50%;
+    --squad-product: 280 100% 60%;
+    --squad-technical: 120 100% 40%;
+    --squad-scrum: 30 100% 50%;
+
+    /* Status Colors */
+    --success: 142 76% 36%;
+    --success-foreground: 355 7% 97%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 48 96% 89%;
+    --info: 199 89% 48%;
+    --info-foreground: 210 40% 98%;
+  }
+
+  .dark {
+    /* Dark Mode Colors */
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+
+    /* SquadGPT Agent Colors - Dark Mode */
+    --squad-business: 200 100% 60%;
+    --squad-product: 280 100% 70%;
+    --squad-technical: 120 100% 50%;
+    --squad-scrum: 30 100% 60%;
+
+    /* Status Colors - Dark Mode */
+    --success: 142 76% 46%;
+    --success-foreground: 355 7% 97%;
+    --warning: 38 92% 60%;
+    --warning-foreground: 48 96% 89%;
+    --info: 199 89% 58%;
+    --info-foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Typography Enhancements */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+
+  h5 {
+    @apply text-lg md:text-xl;
+  }
+
+  h6 {
+    @apply text-base md:text-lg;
+  }
+
+  /* Focus Styles */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Selection Styles */
+  ::selection {
+    @apply bg-primary/20 text-primary-foreground;
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+
+  /* Smooth Scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Component-Specific Styles */
+  
+  /* Card Variants */
+  .card-elevated {
+    @apply card shadow-lg hover:shadow-xl transition-shadow duration-300;
+  }
+
+  .card-interactive {
+    @apply card card-hover cursor-pointer;
+  }
+
+  /* Button Variants */
+  .btn-sm {
+    @apply btn px-3 py-1.5 text-xs;
+  }
+
+  .btn-lg {
+    @apply btn px-6 py-3 text-base;
+  }
+
+  .btn-icon {
+    @apply btn p-2;
+  }
+
+  /* Input Variants */
+  .input-lg {
+    @apply input px-4 py-3 text-base;
+  }
+
+  .input-sm {
+    @apply input px-2 py-1 text-xs;
+  }
+
+  /* Status Badge Variants */
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .badge-success {
+    @apply badge bg-success text-success-foreground;
+  }
+
+  .badge-warning {
+    @apply badge bg-warning text-warning-foreground;
+  }
+
+  .badge-error {
+    @apply badge bg-destructive text-destructive-foreground;
+  }
+
+  .badge-info {
+    @apply badge bg-info text-info-foreground;
+  }
+
+  /* Loading States */
+  .loading-dots {
+    @apply inline-flex items-center space-x-1;
+  }
+
+  .loading-dots > div {
+    @apply w-1.5 h-1.5 bg-current rounded-full animate-pulse;
+  }
+
+  .loading-dots > div:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .loading-dots > div:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent;
+  }
+
+  /* Glass Effect */
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-black/10 backdrop-blur-md border border-white/10;
+  }
+
+  /* SquadGPT Specific Components */
+  .agent-avatar {
+    @apply w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium;
+  }
+
+  .agent-avatar-business {
+    @apply agent-avatar bg-squad-business text-white;
+  }
+
+  .agent-avatar-product {
+    @apply agent-avatar bg-squad-product text-white;
+  }
+
+  .agent-avatar-technical {
+    @apply agent-avatar bg-squad-technical text-white;
+  }
+
+  .agent-avatar-scrum {
+    @apply agent-avatar bg-squad-scrum text-white;
+  }
+
+  /* Stage Progress */
+  .stage-progress {
+    @apply w-full bg-muted rounded-full h-2 overflow-hidden;
+  }
+
+  .stage-progress-bar {
+    @apply h-full bg-primary rounded-full transition-all duration-500 ease-out;
+  }
+
+  /* Chat Message Animations */
+  .chat-message-enter {
+    @apply animate-slide-up;
+  }
+
+  .chat-message-exit {
+    @apply animate-fade-out;
+  }
+
+  /* Form Layout */
+  .form-group {
+    @apply space-y-2;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-foreground;
+  }
+
+  .form-error {
+    @apply text-sm text-destructive;
+  }
+
+  .form-help {
+    @apply text-sm text-muted-foreground;
+  }
+
+  /* Layout Utilities */
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-4;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto px-4;
+  }
+
+  /* Responsive Grid */
+  .grid-auto-fit {
+    @apply grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+
+  .grid-auto-fill {
+    @apply grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5;
+  }
+}
+
+@layer utilities {
+  /* Utility Classes */
+  
+  /* Text Utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Animation Utilities */
+  .animate-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .animate-out {
+    animation: fadeOut 0.3s ease-in;
+  }
+
+  /* Transform Utilities */
+  .scale-hover {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+
+  .scale-active {
+    @apply transition-transform duration-100 active:scale-95;
+  }
+
+  /* Shadow Utilities */
+  .shadow-soft {
+    box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+  }
+
+  .shadow-strong {
+    box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Border Utilities */
+  .border-gradient {
+    border-image: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--squad-product))) 1;
+  }
+
+  /* Background Utilities */
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--squad-product)));
+  }
+
+  .bg-gradient-secondary {
+    background: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--muted)));
+  }
+
+  /* Interactive States */
+  .interactive {
+    @apply transition-all duration-200 ease-in-out;
+  }
+
+  .interactive:hover {
+    @apply transform -translate-y-0.5 shadow-md;
+  }
+
+  .interactive:active {
+    @apply transform translate-y-0 shadow-sm;
+  }
+}
